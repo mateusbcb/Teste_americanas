@@ -1,71 +1,66 @@
-# Teste_americanas
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-Instalação
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-Esse projeto foi desenvolvido na plataforma Windows utilizando o Wampserver64 como
-base da configuração, as configurações do httpd-vhosts.conf do wamp e
-a edição do arquivo host no system 32
+## About Laravel
 
-Para as configurações do servidor
-1 - Faça a instalação do wamoserver (https://sourceforge.net/projects/wampserver/files/)
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-2 - Altere o arquivo host no diretório do Windows (C:\Windows\System32\drivers\etc)
-    Acrescente a seguinte linha:
-    
-    127.0.0.1 www.b2w.com.br
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-    salve como administrador.
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-3 - Faça o clone deste projeto na pasta WWW do Wamp
+## Learning Laravel
 
-4 - Altere o arquivo httpd-vhosts.conf ([PASTA RAIZ DO WAMPSERVER]\bin\apache\apache2.4.46\conf\extra)
-    acrescente as seguintes linhas:
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-    <VirtualHost *:80>
-    ServerName www.b2w.com.br
-    ServerAlias www.b2w.com.br
-    DocumentRoot "${INSTALL_DIR}/www/[DIRETORIO PUBLIC DO PROJETO]"
-    <Directory "${INSTALL_DIR}/www/[DIRETORIO PUBLIC DO PROJETO]/">
-        Options +Indexes +Includes +FollowSymLinks +MultiViews
-        AllowOverride All
-        Require local
-    </Directory>
-    </VirtualHost>
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-    Para que as alterações funcionem será necessário reiniciar os servidores do Wampserver.
+## Laravel Sponsors
 
-5 - Acesse pelo navegador a url http://localhost/phpmyadmin e crie um Banco de dados 
-    com nome de db_b2w.
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-6 - Dentro da pasta raiz do projeto altere o arquivo .env adicionando as configurações
-    do banco. Segue exemplo:
+### Premium Partners
 
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=db_b2w
-    DB_USERNAME=root
-    DB_PASSWORD=
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[CMS Max](https://www.cmsmax.com/)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
+- **[Romega Software](https://romegasoftware.com)**
 
-7 - Abra o terminal na pasta raiz do projeto e insira a seguinte linha de comando:
-        php artisan migrate
-    Depois para rodar o seed e popular o banco insira o comando abaixo:
-        php artisan migrate:fresh --seed
+## Contributing
 
-8 - No navegador, acesse www.b2w.com.br ou o endereço que tenha colocado no arquivo host.
-    Atenção: o endereço deve ser o mesmo do discriminado em httpd-vhosts.conf
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-    Nesse momento, você deverá ver a pagina de login, podendo criar uma conta ou acessar com:
-	e-mail : admin@admin.com
-	senha  : password
+## Code of Conduct
 
-OBS. talvez seja necessário gerar uma nova API_KEY no '.env'. Para isso, na raiz do projeto digite
-    a seguinte linha de comando:
-        php artisan apikey:generate {name}
-    
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-Qualquer dúvida favor entrar em contato via e-mail: mateusbcb@gmail.com ou (47) 9 8417-1346 (WhatsApp)
+## Security Vulnerabilities
 
-Obrigado!
-Mateus Brandt
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
